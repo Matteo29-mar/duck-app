@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Paperella</title>
+</head>
+<body>
+    <div id="duck-container"></div>
+    <script>
+        document.addEventListener('keydown', (event) => {
+            const container = document.getElementById('duck-container');
+
+            if (event.key === 'q') {
+                // Genera una posizione casuale
+                const duck = document.createElement('img');
+                duck.src = '/static/rubber-duck.png';
+                duck.className = 'duck';
+
+                // Posizione casuale nel viewport
+                const x = Math.random() * (window.innerWidth - 50);
+                const y = Math.random() * (window.innerHeight - 50);
+                duck.style.left = `${x}px`;
+                duck.style.top = `${y}px`;
+
+                container.appendChild(duck);
+            } else if (event.key === 'd') {
+                // Rimuovi tutte le paperelle
+                container.innerHTML = '';
+            }
+        });
+    </script>
+</body>
+</html>
